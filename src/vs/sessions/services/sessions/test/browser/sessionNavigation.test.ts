@@ -41,7 +41,10 @@ function stubChatWithId(id: string, status: SessionStatus = SessionStatus.Comple
 		title: constObservable(`Chat ${id}`),
 		updatedAt: constObservable(new Date()),
 		status: constObservable(status),
+<<<<<<< HEAD
 		checkpoints: constObservable(undefined),
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		changesets: constObservable([]),
 		changes: constObservable([]),
 		modelId: constObservable(undefined),
@@ -75,6 +78,10 @@ function stubSession(id: string, status: SessionStatus = SessionStatus.Completed
 		isRead: constObservable(true),
 		description: constObservable(undefined),
 		lastTurnEnd: constObservable(undefined),
+<<<<<<< HEAD
+=======
+		gitHubInfo: constObservable(undefined),
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		chats: constObservable(sessionChats),
 		mainChat: sessionChats[0],
 		capabilities: { supportsMultipleChats: chats !== undefined && chats.length > 1 },

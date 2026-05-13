@@ -29,6 +29,7 @@ import { basename, dirname, isEqual } from '../../../../../base/common/resources
 import { ISendRequestOptions, ISessionChangeEvent, ISessionsProvider } from '../../../../services/sessions/common/sessionsProvider.js';
 import { ISessionOptionGroup } from '../../../chat/browser/newSession.js';
 import { IsolationMode } from './isolationPicker.js';
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/browser/copilotChatSessionsProvider.ts
 import { ChatViewPaneTarget, IChatWidgetService } from '../../../../../workbench/contrib/chat/browser/chat.js';
 import { ILanguageModelToolsService } from '../../../../../workbench/contrib/chat/common/tools/languageModelToolsService.js';
 import { isBuiltinChatMode, IChatMode } from '../../../../../workbench/contrib/chat/common/chatModes.js';
@@ -69,6 +70,25 @@ export const CopilotCloudSessionType: ISessionType = {
 	label: localize('copilotCloud', "Cloud"),
 	icon: Codicon.cloud,
 };
+=======
+import { ChatViewPaneTarget, IChatWidgetService } from '../../../../workbench/contrib/chat/browser/chat.js';
+import { ILanguageModelToolsService } from '../../../../workbench/contrib/chat/common/tools/languageModelToolsService.js';
+import { isBuiltinChatMode, IChatMode } from '../../../../workbench/contrib/chat/common/chatModes.js';
+import { CancellationToken, CancellationTokenSource } from '../../../../base/common/cancellation.js';
+import { generateUuid } from '../../../../base/common/uuid.js';
+import { ILanguageModelsService } from '../../../../workbench/contrib/chat/common/languageModels.js';
+import { IGitService, IGitRepository } from '../../../../workbench/contrib/git/common/gitService.js';
+import { IContextKeyService, ContextKeyExpr } from '../../../../platform/contextkey/common/contextkey.js';
+import { IChatRequestVariableEntry } from '../../../../workbench/contrib/chat/common/attachments/chatVariableEntries.js';
+import { localize } from '../../../../nls.js';
+import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
+import { ILabelService } from '../../../../platform/label/common/label.js';
+import { ILogService } from '../../../../platform/log/common/log.js';
+import { IFileService } from '../../../../platform/files/common/files.js';
+import { IStorageService, StorageScope, StorageTarget } from '../../../../platform/storage/common/storage.js';
+import { IGitHubService } from '../../github/browser/githubService.js';
+import { computePullRequestIcon, GitHubPullRequestState } from '../../github/common/types.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/browser/copilotChatSessionsProvider.ts
 
 const SESSION_WORKSPACE_GROUP_GITHUB = localize('sessionWorkspaceGroup.github', "GitHub");
 const STORAGE_KEY_ISOLATION_MODE = 'sessions.isolationPicker.selectedMode';

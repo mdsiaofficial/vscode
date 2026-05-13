@@ -4,6 +4,7 @@
  *--------------------------------------------------------------------------------------------*/
 
 import assert from 'assert';
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/test/browser/claudePermissionModePicker.test.ts
 import { Event } from '../../../../../../base/common/event.js';
 import { DisposableStore } from '../../../../../../base/common/lifecycle.js';
 import { observableValue } from '../../../../../../base/common/observable.js';
@@ -15,6 +16,19 @@ import { ITelemetryService } from '../../../../../../platform/telemetry/common/t
 import { NullTelemetryService } from '../../../../../../platform/telemetry/common/telemetryUtils.js';
 import { ISessionsProvidersService } from '../../../../../services/sessions/browser/sessionsProvidersService.js';
 import { IActiveSession, ISessionsManagementService } from '../../../../../services/sessions/common/sessionsManagement.js';
+=======
+import { Event } from '../../../../../base/common/event.js';
+import { DisposableStore } from '../../../../../base/common/lifecycle.js';
+import { observableValue } from '../../../../../base/common/observable.js';
+import { ensureNoDisposablesAreLeakedInTestSuite } from '../../../../../base/test/common/utils.js';
+import { IActionWidgetService } from '../../../../../platform/actionWidget/browser/actionWidget.js';
+import { IActionListItem } from '../../../../../platform/actionWidget/browser/actionList.js';
+import { TestInstantiationService } from '../../../../../platform/instantiation/test/common/instantiationServiceMock.js';
+import { ITelemetryService } from '../../../../../platform/telemetry/common/telemetry.js';
+import { NullTelemetryService } from '../../../../../platform/telemetry/common/telemetryUtils.js';
+import { ISessionsProvidersService } from '../../../../services/sessions/browser/sessionsProvidersService.js';
+import { IActiveSession, ISessionsManagementService } from '../../../../services/sessions/common/sessionsManagement.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/test/browser/claudePermissionModePicker.test.ts
 import { CopilotChatSessionsProvider, ICopilotChatSession } from '../../browser/copilotChatSessionsProvider.js';
 import { ClaudePermissionModePicker } from '../../browser/claudePermissionModePicker.js';
 import { IConfigurationService } from '../../../../../../platform/configuration/common/configuration.js';
@@ -77,8 +91,11 @@ function createPicker(
 		getProvider: () => provider,
 	} as unknown as ISessionsProvidersService);
 	instantiationService.stub(ITelemetryService, NullTelemetryService);
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/test/browser/claudePermissionModePicker.test.ts
 	instantiationService.stub(IConfigurationService, new TestConfigurationService());
 	instantiationService.stub(IChatEntitlementService, { previewFeaturesDisabled: false } as IChatEntitlementService);
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/test/browser/claudePermissionModePicker.test.ts
 
 	const picker = disposables.add(instantiationService.createInstance(ClaudePermissionModePicker));
 

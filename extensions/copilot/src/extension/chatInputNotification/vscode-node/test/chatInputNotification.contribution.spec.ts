@@ -154,10 +154,16 @@ describe('ChatInputNotificationContribution', () => {
 			(authService as any).copilotToken = undefined;
 			authEmitter.fire();
 
+<<<<<<< HEAD
 			// Sign back in — quota still at 50% → baseline stored, no notification
 			(authService as any).copilotToken = { isFreeUser: false, isNoAuthUser: false, isUsageBasedBilling: true };
 			quotaEmitter.fire();
 			expect(mockNotification.show).not.toHaveBeenCalled();
+=======
+			// Sign back in
+			(authService as any).copilotToken = { isFreeUser: false, isNoAuthUser: false, isUsageBasedBilling: true };
+			authEmitter.fire();
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 
 			// Usage increases past 75% → new threshold fires
 			(quotaService as any).quotaInfo = makeQuota(25);
@@ -205,6 +211,11 @@ describe('ChatInputNotificationContribution', () => {
 				{ quotaExhausted: true },
 			);
 
+<<<<<<< HEAD
+=======
+			// Anonymous UBB user has a copilotToken but no GitHub session.
+			// They should still see the exhausted notification.
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 			quotaEmitter.fire();
 
 			expect(mockNotification.show).toHaveBeenCalled();
@@ -222,6 +233,7 @@ describe('ChatInputNotificationContribution', () => {
 
 			expect(mockNotification.show).not.toHaveBeenCalled();
 		});
+<<<<<<< HEAD
 	});
 
 	// --- threshold crossing (window reload / sign-in) ------------------------
@@ -370,6 +382,8 @@ describe('ChatInputNotificationContribution', () => {
 
 			expect(mockNotification.show).not.toHaveBeenCalled();
 		});
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 	});
 
 	// --- basic notification lifecycle ----------------------------------------
@@ -582,12 +596,19 @@ describe('ChatInputNotificationContribution', () => {
 		test('still shows rate limit warning for PRU user', () => {
 			setup(
 				{ copilotToken: { isFreeUser: false, isNoAuthUser: false, isManagedPlan: false, isUsageBasedBilling: false } },
+<<<<<<< HEAD
 				{ session: makeQuota(60) }, // 40% session used — baseline
 			);
 
 			quotaEmitter.fire();
 			(quotaService as any).rateLimitInfo = { session: makeQuota(25), weekly: undefined }; // 75% used
 			quotaEmitter.fire();
+=======
+				{ session: makeQuota(25) }, // 75% used
+			);
+
+			quotaEmitter.fire();
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 
 			expect(mockNotification.show).toHaveBeenCalled();
 			expect(mockNotification.message).toContain('session');

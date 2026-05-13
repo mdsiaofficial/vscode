@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/browser/isolationPicker.ts
 import * as dom from '../../../../../base/browser/dom.js';
 import { Gesture, EventType as TouchEventType } from '../../../../../base/browser/touch.js';
 import { Codicon } from '../../../../../base/common/codicons.js';
@@ -17,6 +18,22 @@ import { ITelemetryService } from '../../../../../platform/telemetry/common/tele
 import { reportNewChatPickerClosed } from '../../../chat/browser/newChatPickerTelemetry.js';
 import { ISessionsManagementService } from '../../../../services/sessions/common/sessionsManagement.js';
 import { ISessionsProvidersService } from '../../../../services/sessions/browser/sessionsProvidersService.js';
+=======
+import * as dom from '../../../../base/browser/dom.js';
+import { Gesture, EventType as TouchEventType } from '../../../../base/browser/touch.js';
+import { Codicon } from '../../../../base/common/codicons.js';
+import { Disposable, DisposableStore } from '../../../../base/common/lifecycle.js';
+import { autorun } from '../../../../base/common/observable.js';
+import { renderIcon } from '../../../../base/browser/ui/iconLabel/iconLabels.js';
+import { localize } from '../../../../nls.js';
+import { IActionWidgetService } from '../../../../platform/actionWidget/browser/actionWidget.js';
+import { ActionListItemKind, IActionListDelegate, IActionListItem } from '../../../../platform/actionWidget/browser/actionList.js';
+import { IConfigurationService } from '../../../../platform/configuration/common/configuration.js';
+import { ITelemetryService } from '../../../../platform/telemetry/common/telemetry.js';
+import { reportNewChatPickerClosed } from '../../chat/browser/newChatPickerTelemetry.js';
+import { ISessionsManagementService } from '../../../services/sessions/common/sessionsManagement.js';
+import { ISessionsProvidersService } from '../../../services/sessions/browser/sessionsProvidersService.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/browser/isolationPicker.ts
 import { CopilotChatSessionsProvider } from './copilotChatSessionsProvider.js';
 
 export type IsolationMode = 'worktree' | 'workspace';

@@ -168,6 +168,10 @@ function createSandboxLines(allowToRunUnsandboxedCommands: boolean, networkDomai
 		lines.push(
 			'- When a command fails due to sandbox restrictions, immediately re-run it with requestUnsandboxedExecution=true. Do NOT ask the user for permission — setting this flag automatically shows a confirmation prompt to the user',
 			'- Only set requestUnsandboxedExecution=true when there is evidence of failures caused by the sandbox, e.g. \'Operation not permitted\' errors, network failures, or file access errors, etc',
+<<<<<<< HEAD
+=======
+			'- Do NOT set requestUnsandboxedExecution=true without first executing the command in sandbox mode. Always try the command in the sandbox first, and only set requestUnsandboxedExecution=true when retrying after that sandboxed execution failed due to sandbox restrictions.',
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 			'- When setting requestUnsandboxedExecution=true, also provide requestUnsandboxedExecutionReason explaining why the command needs unsandboxed access',
 		);
 	} else {

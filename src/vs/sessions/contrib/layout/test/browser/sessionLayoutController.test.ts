@@ -46,7 +46,10 @@ function makeSession(resource: URI, opts?: {
 		title: observableValue('title', 'Test'),
 		updatedAt: observableValue('updatedAt', new Date()),
 		status: observableValue('status', opts?.status ?? SessionStatus.Completed),
+<<<<<<< HEAD
 		checkpoints: observableValue('checkpoints', undefined),
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		changesets: observableValue('changesets', []),
 		changes: observableValue('changes', opts?.changes ?? []),
 		modelId: observableValue('modelId', undefined),
@@ -65,6 +68,7 @@ function makeSession(resource: URI, opts?: {
 		icon: Codicon.copilot,
 		createdAt: chat.createdAt,
 		workspace: observableValue('workspace', opts?.workspace ?? {
+<<<<<<< HEAD
 			uri: URI.file('/repo'),
 			label: 'test',
 			icon: Codicon.repo,
@@ -77,6 +81,12 @@ function makeSession(resource: URI, opts?: {
 			}],
 			requiresWorkspaceTrust: false,
 			isVirtualWorkspace: false,
+=======
+			label: 'test',
+			icon: Codicon.repo,
+			repositories: [{ uri: URI.file('/repo'), workingDirectory: undefined, detail: undefined, baseBranchName: undefined }],
+			requiresWorkspaceTrust: false,
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		}),
 		title: chat.title,
 		updatedAt: chat.updatedAt,
@@ -90,6 +100,10 @@ function makeSession(resource: URI, opts?: {
 		isRead: chat.isRead,
 		lastTurnEnd: chat.lastTurnEnd,
 		description: chat.description,
+<<<<<<< HEAD
+=======
+		gitHubInfo: observableValue('gitHubInfo', undefined),
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		chats: observableValue('chats', [chat]),
 		activeChat: observableValue('activeChat', chat),
 		mainChat: chat,
@@ -231,7 +245,11 @@ suite('LayoutController', () => {
 	test('does not open views when session has no workspace', () => {
 		createLayoutController();
 		const session = makeSession(URI.parse('session:1'), {
+<<<<<<< HEAD
 			workspace: { uri: URI.file('/repo'), label: 'test', icon: Codicon.repo, folders: [], requiresWorkspaceTrust: false, isVirtualWorkspace: false },
+=======
+			workspace: { label: 'test', icon: Codicon.repo, repositories: [], requiresWorkspaceTrust: false },
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		});
 		activeSessionObs.set(session, undefined);
 

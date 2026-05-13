@@ -3,6 +3,7 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/browser/copilotChatSessionsActions.ts
 import { BaseActionViewItem } from '../../../../../base/browser/ui/actionbar/actionViewItems.js';
 import { coalesce } from '../../../../../base/common/arrays.js';
 import { Disposable, IDisposable } from '../../../../../base/common/lifecycle.js';
@@ -28,6 +29,33 @@ import { ISessionsProvidersService } from '../../../../services/sessions/browser
 import { ISession, SessionStatus } from '../../../../services/sessions/common/session.js';
 import { ISessionsManagementService } from '../../../../services/sessions/common/sessionsManagement.js';
 import { SessionItemContextMenuId } from '../../../sessions/browser/views/sessionsList.js';
+=======
+import { BaseActionViewItem } from '../../../../base/browser/ui/actionbar/actionViewItems.js';
+import { coalesce } from '../../../../base/common/arrays.js';
+import { Disposable, IDisposable } from '../../../../base/common/lifecycle.js';
+import { MarshalledId } from '../../../../base/common/marshallingIds.js';
+import { IReader, autorun, observableValue } from '../../../../base/common/observable.js';
+import { isWeb } from '../../../../base/common/platform.js';
+import { localize2 } from '../../../../nls.js';
+import { IActionViewItemService } from '../../../../platform/actions/browser/actionViewItemService.js';
+import { Action2, MenuId, MenuRegistry, isIMenuItem, registerAction2 } from '../../../../platform/actions/common/actions.js';
+import { CommandsRegistry, ICommandService } from '../../../../platform/commands/common/commands.js';
+import { ContextKeyExpr, IContextKeyService } from '../../../../platform/contextkey/common/contextkey.js';
+import { IInstantiationService, ServicesAccessor } from '../../../../platform/instantiation/common/instantiation.js';
+import { IStorageService, StorageScope, StorageTarget } from '../../../../platform/storage/common/storage.js';
+import { ITelemetryService } from '../../../../platform/telemetry/common/telemetry.js';
+import { IWorkbenchContribution, WorkbenchPhase, registerWorkbenchContribution2 } from '../../../../workbench/common/contributions.js';
+import { IAgentSessionsService } from '../../../../workbench/contrib/chat/browser/agentSessions/agentSessionsService.js';
+import { IChatInputPickerOptions } from '../../../../workbench/contrib/chat/browser/widget/input/chatInputPickerActionItem.js';
+import { IModelPickerDelegate, ModelPickerActionItem } from '../../../../workbench/contrib/chat/browser/widget/input/modelPickerActionItem.js';
+import { ILanguageModelChatMetadataAndIdentifier, ILanguageModelsService } from '../../../../workbench/contrib/chat/common/languageModels.js';
+import { Menus } from '../../../browser/menus.js';
+import { ActiveSessionHasGitRepositoryContext, ActiveSessionProviderIdContext, ActiveSessionTypeContext, ChatSessionProviderIdContext, IsNewChatSessionContext } from '../../../common/contextkeys.js';
+import { ISessionsProvidersService } from '../../../services/sessions/browser/sessionsProvidersService.js';
+import { CLAUDE_CODE_SESSION_TYPE, COPILOT_CLI_SESSION_TYPE, COPILOT_CLOUD_SESSION_TYPE, LOCAL_SESSION_TYPE, ISession } from '../../../services/sessions/common/session.js';
+import { ISessionsManagementService } from '../../../services/sessions/common/sessionsManagement.js';
+import { SessionItemContextMenuId } from '../../sessions/browser/views/sessionsList.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/browser/copilotChatSessionsActions.ts
 import { BranchPicker } from './branchPicker.js';
 import { ClaudePermissionModePicker } from './claudePermissionModePicker.js';
 import { ClaudeCodeSessionType, COPILOT_PROVIDER_ID, CopilotChatSessionsProvider, CopilotCloudSessionType, LocalSessionType } from './copilotChatSessionsProvider.js';
@@ -35,9 +63,14 @@ import { IsolationPicker } from './isolationPicker.js';
 import { ModePicker } from './modePicker.js';
 import { CloudModelPicker } from './modelPicker.js';
 import { CopilotPermissionPickerDelegate, PermissionPicker } from './permissionPicker.js';
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/browser/copilotChatSessionsActions.ts
 import { SessionType } from '../../../../../workbench/contrib/chat/common/chatSessionsService.js';
 import { reportNewChatPickerClosed } from '../../../chat/browser/newChatPickerTelemetry.js';
 import { CopilotCLISessionType } from '../../agentHost/browser/baseAgentHostSessionsProvider.js';
+=======
+import { SessionType } from '../../../../workbench/contrib/chat/common/chatSessionsService.js';
+import { reportNewChatPickerClosed } from '../../chat/browser/newChatPickerTelemetry.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/browser/copilotChatSessionsActions.ts
 
 const IsActiveSessionCopilotCLI = ContextKeyExpr.equals(ActiveSessionTypeContext.key, CopilotCLISessionType.id);
 const IsActiveSessionCopilotCloud = ContextKeyExpr.equals(ActiveSessionTypeContext.key, CopilotCloudSessionType.id);
@@ -387,6 +420,7 @@ export class SessionModelPicker extends Disposable {
 		}
 
 		const current = this._currentModel.get();
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/copilotChatSessions/browser/copilotChatSessionsActions.ts
 		const sessionModelId = session?.modelId.get();
 		const sessionModel = sessionModelId ? models.find(m => m.identifier === sessionModelId) : undefined;
 		const isNewSession = session?.status.get() === SessionStatus.Untitled;
@@ -412,6 +446,16 @@ export class SessionModelPicker extends Disposable {
 				this._delegate.setModel(sessionModel ?? this._getFallbackModel(sessionType, models));
 				this._lastPushedSessionId = session?.sessionId;
 			} else if (session && isNewSession && session.sessionId !== this._lastPushedSessionId && models.some(m => m.identifier === current.identifier)) {
+=======
+		this._settingModelInternally = true;
+		try {
+			if (!current) {
+				const rememberedModelId = sessionType ? this._storageService.get(modelPickerStorageKey(sessionType), StorageScope.PROFILE) : undefined;
+				const remembered = rememberedModelId ? models.find(m => m.identifier === rememberedModelId) : undefined;
+				this._delegate.setModel(remembered ?? models[0]);
+				this._lastPushedSessionId = session?.sessionId;
+			} else if (session && session.sessionId !== this._lastPushedSessionId && models.some(m => m.identifier === current.identifier)) {
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/copilotChatSessions/browser/copilotChatSessionsActions.ts
 				// Active session changed (e.g. user switched repository) but the
 				// previously selected model is still available. Re-push it so the
 				// new session's provider receives setModel — otherwise the request

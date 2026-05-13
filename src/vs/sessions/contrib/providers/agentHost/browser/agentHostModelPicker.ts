@@ -23,7 +23,11 @@ import { ISessionsManagementService } from '../../../../services/sessions/common
 import { ISessionsProvidersService } from '../../../../services/sessions/browser/sessionsProvidersService.js';
 import { Menus } from '../../../../browser/menus.js';
 import { LOCAL_AGENT_HOST_PROVIDER_ID, REMOTE_AGENT_HOST_PROVIDER_RE } from '../../../../common/agentHostSessionsProvider.js';
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/agentHost/browser/agentHostModelPicker.ts
 import { reportNewChatPickerClosed } from '../../../chat/browser/newChatPickerTelemetry.js';
+=======
+import { reportNewChatPickerClosed } from '../newChatPickerTelemetry.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/chat/browser/agentHost/agentHostModelPicker.ts
 
 const IsActiveSessionAgentHost = ContextKeyExpr.or(
 	ContextKeyExpr.equals(ActiveSessionProviderIdContext.key, LOCAL_AGENT_HOST_PROVIDER_ID),

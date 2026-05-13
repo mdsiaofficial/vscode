@@ -87,7 +87,11 @@ export class ToolsContribution extends Disposable {
 				}
 			}
 
+<<<<<<< HEAD
 			// Collect local repo-scoped memories
+=======
+			// Collect local repo-scoped memories (CAPI memory is disabled)
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 			if (storageUri) {
 				const repoMemoryUri = URI.joinPath(storageUri, 'memory-tool/memories/repo');
 				try {

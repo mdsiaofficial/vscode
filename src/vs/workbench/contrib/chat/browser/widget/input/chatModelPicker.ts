@@ -583,6 +583,7 @@ export function buildModelPickerItems(
 					return aName.localeCompare(bName);
 				});
 
+<<<<<<< HEAD
 				for (const item of promotedItems) {
 					if (item.kind === 'available') {
 						const groupLabel = showGroupLabel
@@ -590,6 +591,23 @@ export function buildModelPickerItems(
 							: undefined;
 						const { action: promotedAction, ariaDescription: promotedAriaDesc } = createModelAction(item.model, selectedModelId, onSelect, languageModelsService!, undefined, showGroupLabel, isUBB);
 						items.push(createModelItem(promotedAction, item.model, openerService, groupLabel, isUBB, promotedAriaDesc, makePinAction(item.model)));
+=======
+				const allGroupKeys = new Set(
+					models.map(m => {
+						const info = getProviderGroupForModel(m, modelToGroup, languageModelsService!);
+						return getProviderGroupKey(info.vendor, info.groupName);
+					})
+				);
+				const showPromotedGroupLabel = allGroupKeys.size > 1;
+
+				for (const item of promotedItems) {
+					if (item.kind === 'available') {
+						const groupLabel = showPromotedGroupLabel
+							? getProviderGroupForModel(item.model, modelToGroup, languageModelsService!).groupName
+							: undefined;
+						const { action: promotedAction, descriptionOverride: promotedDesc } = createModelAction(item.model, selectedModelId, onSelect, languageModelsService!, undefined, showPromotedGroupLabel, isUBB);
+						items.push(createModelItem(promotedAction, item.model, promotedDesc, openerService, groupLabel, isUBB));
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 					} else {
 						items.push(createUnavailableModelItem(item.id, item.entry, item.reason, manageSettingsUrl, updateStateType, chatEntitlementService));
 					}
@@ -680,8 +698,13 @@ export function buildModelPickerItems(
 						if (entry?.minVSCodeVersion && !isVersionAtLeast(currentVSCodeVersion, entry.minVSCodeVersion)) {
 							items.push(createUnavailableModelItem(model.metadata.id, entry, 'update', manageSettingsUrl, updateStateType, chatEntitlementService, ModelPickerSection.Other));
 						} else {
+<<<<<<< HEAD
 							const { action: bucketAction, ariaDescription: bucketAriaDesc } = createModelAction(model, selectedModelId, onSelect, languageModelsService!, ModelPickerSection.Other, showGroupHeaders, isUBB);
 							items.push(createModelItem(bucketAction, model, openerService, undefined, isUBB, bucketAriaDesc, makePinAction(model)));
+=======
+							const { action: bucketAction, descriptionOverride: bucketDesc } = createModelAction(model, selectedModelId, onSelect, languageModelsService!, ModelPickerSection.Other, showGroupHeaders, isUBB);
+							items.push(createModelItem(bucketAction, model, bucketDesc, openerService, undefined, isUBB));
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 						}
 					}
 				}

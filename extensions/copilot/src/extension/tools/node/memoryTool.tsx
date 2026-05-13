@@ -476,7 +476,11 @@ export class MemoryTool implements ICopilotTool<MemoryToolParams> {
 			lines.push('/memories/session/');
 		}
 
+<<<<<<< HEAD
 		// List local repo memory files under repo/
+=======
+		// List local repo memory files under repo/ (CAPI memory is disabled)
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		try {
 			const repoUri = this._resolveUri('/memories/repo/', 'repo');
 			const repoEntries = await this.fileSystemService.readDirectory(repoUri);

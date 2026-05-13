@@ -19,7 +19,11 @@ import { type IAgentHostSessionsProvider, isAgentHostProvider } from '../../../.
 import { ISessionsProvidersService } from '../../../../services/sessions/browser/sessionsProvidersService.js';
 import { ISessionsManagementService } from '../../../../services/sessions/common/sessionsManagement.js';
 import { type ISessionsProvider } from '../../../../services/sessions/common/sessionsProvider.js';
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/agentHost/browser/agentHostModePicker.ts
 import { reportNewChatPickerClosed } from '../../../chat/browser/newChatPickerTelemetry.js';
+=======
+import { reportNewChatPickerClosed } from '../newChatPickerTelemetry.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/chat/browser/agentHost/agentHostModePicker.ts
 import { isWellKnownModeSchema } from './agentHostPermissionPickerDelegate.js';
 
 interface IModePickerItem {

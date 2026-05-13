@@ -91,7 +91,11 @@ export class ChatInputNotificationContribution extends Disposable {
 		if (isQuotaNotificationEligible) {
 			const quotaWarning = this._computeQuotaWarning();
 			if (quotaWarning) {
+<<<<<<< HEAD
 				this._fetchAndShowQuotaWarning(quotaWarning);
+=======
+				this._showQuotaApproachingWarning(quotaWarning);
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 				return;
 			}
 		}

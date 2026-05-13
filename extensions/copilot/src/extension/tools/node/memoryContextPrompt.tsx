@@ -31,9 +31,23 @@ export class MemoryContextPrompt extends PromptElement<MemoryContextPromptProps>
 	}
 
 	async render() {
+<<<<<<< HEAD
 		const userMemoryContent = await this.getUserMemoryContent();
 		const sessionMemoryFiles = await this.getSessionMemoryFiles(this.props.sessionResource);
 		const localRepoMemoryFiles = await this.getLocalRepoMemoryFiles();
+=======
+		const enableCopilotMemory = false;
+		const enableMemoryTool = this.configurationService.getExperimentBasedConfig(ConfigKey.MemoryToolEnabled, this.experimentationService);
+
+		const userMemoryContent = enableMemoryTool ? await this.getUserMemoryContent() : undefined;
+		const sessionMemoryFiles = enableMemoryTool ? await this.getSessionMemoryFiles(this.props.sessionResource) : undefined;
+		const repoMemories = enableCopilotMemory ? await this.agentMemoryService.getRepoMemories() : undefined;
+		const localRepoMemoryFiles = (enableMemoryTool && !enableCopilotMemory) ? await this.getLocalRepoMemoryFiles() : undefined;
+
+		if (!enableMemoryTool && !enableCopilotMemory) {
+			return null;
+		}
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 
 		this._sendContextReadTelemetry(
 			!!userMemoryContent,
@@ -196,6 +210,15 @@ export class MemoryInstructionsPrompt extends PromptElement<BasePromptElementPro
 	}
 
 	async render(state: void, sizing: PromptSizing) {
+<<<<<<< HEAD
+=======
+		const enableCopilotMemory = false;
+		const enableMemoryTool = this.configurationService.getExperimentBasedConfig(ConfigKey.MemoryToolEnabled, this.experimentationService);
+		if (!enableCopilotMemory && !enableMemoryTool) {
+			return null;
+		}
+
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 		return <Tag name='memoryInstructions'>
 			As you work, consult your memory files to build on previous experience. When you encounter a mistake that seems like it could be common, check your memory for relevant notes — and if nothing is written yet, record what you learned.<br />
 			<br />

@@ -305,8 +305,11 @@ export class Workbench extends Disposable implements IAgentWorkbenchLayoutServic
 	//#endregion
 
 	private static readonly _PART_VISIBILITY_KEY = 'workbench.sessions.partVisibility';
+<<<<<<< HEAD
 	private static readonly _PART_SIZES_KEY = 'workbench.sessions.partSizes';
 	private static readonly _EDITOR_INITIAL_SIZE_APPLIED_KEY = 'workbench.sessions.editorInitialSizeApplied';
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 
 	//#region Services
 
@@ -657,6 +660,7 @@ export class Workbench extends Disposable implements IAgentWorkbenchLayoutServic
 		}), StorageScope.WORKSPACE, StorageTarget.MACHINE);
 	}
 
+<<<<<<< HEAD
 	private _loadPartSizes(storageService: IStorageService): IPartSizesState {
 		const raw = storageService.get(Workbench._PART_SIZES_KEY, StorageScope.WORKSPACE);
 		if (raw) {
@@ -697,6 +701,8 @@ export class Workbench extends Disposable implements IAgentWorkbenchLayoutServic
 		this.storageService.store(Workbench._PART_SIZES_KEY, JSON.stringify(sizes), StorageScope.WORKSPACE, StorageTarget.MACHINE);
 	}
 
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 	//#endregion
 
 	private renderWorkbench(instantiationService: IInstantiationService, notificationService: NotificationService, storageService: IStorageService, configurationService: IConfigurationService): void {
@@ -718,12 +724,15 @@ export class Workbench extends Disposable implements IAgentWorkbenchLayoutServic
 		this.partVisibility.editor = savedPartVisibility.editor ?? visibilityDefaults.editor;
 		this.partVisibility.auxiliaryBar = savedPartVisibility.auxiliaryBar ?? visibilityDefaults.auxiliaryBar;
 		this.partVisibility.sidebar = savedPartVisibility.sidebar ?? visibilityDefaults.sidebar;
+<<<<<<< HEAD
 
 		// Load saved grid part sizes — these will be consumed when building the
 		// grid descriptor so editor/sidebar/auxbar/panel restore to their previous
 		// dimensions across reloads.
 		this._savedPartSizes = this._loadPartSizes(storageService);
 		this._editorInitialSizeApplied = storageService.getBoolean(Workbench._EDITOR_INITIAL_SIZE_APPLIED_KEY, StorageScope.WORKSPACE, false);
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 
 		// State specific classes
 		const platformClass = isWindows ? 'windows' : isLinux ? 'linux' : 'mac';
@@ -1674,6 +1683,7 @@ export class Workbench extends Disposable implements IAgentWorkbenchLayoutServic
 		}
 
 		this._savePartVisibility();
+<<<<<<< HEAD
 	}
 
 	/**
@@ -1696,6 +1706,8 @@ export class Workbench extends Disposable implements IAgentWorkbenchLayoutServic
 
 		this._editorInitialSizeApplied = true;
 		this.storageService.store(Workbench._EDITOR_INITIAL_SIZE_APPLIED_KEY, true, StorageScope.WORKSPACE, StorageTarget.MACHINE);
+=======
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 	}
 
 	private setPanelHidden(hidden: boolean): void {

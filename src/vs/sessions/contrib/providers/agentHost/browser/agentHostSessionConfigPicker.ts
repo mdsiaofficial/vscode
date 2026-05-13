@@ -33,7 +33,11 @@ import { type IChatInputPickerOptions } from '../../../../../workbench/contrib/c
 import { Menus } from '../../../../browser/menus.js';
 import { ActiveSessionProviderIdContext, IsPhoneLayoutContext } from '../../../../common/contextkeys.js';
 import { IWorkbenchLayoutService } from '../../../../../workbench/services/layout/browser/layoutService.js';
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/agentHost/browser/agentHostSessionConfigPicker.ts
 import { reportNewChatPickerClosed } from '../../../chat/browser/newChatPickerTelemetry.js';
+=======
+import { reportNewChatPickerClosed } from '../newChatPickerTelemetry.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/chat/browser/agentHost/agentHostSessionConfigPicker.ts
 import { ISessionsProvidersService } from '../../../../services/sessions/browser/sessionsProvidersService.js';
 import { ISessionsManagementService } from '../../../../services/sessions/common/sessionsManagement.js';
 import type { ISessionsProvider } from '../../../../services/sessions/common/sessionsProvider.js';

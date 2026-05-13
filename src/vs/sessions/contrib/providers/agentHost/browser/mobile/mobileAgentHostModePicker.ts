@@ -3,12 +3,21 @@
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 
+<<<<<<< HEAD:src/vs/sessions/contrib/providers/agentHost/browser/mobile/mobileAgentHostModePicker.ts
 import { IActionWidgetService } from '../../../../../../platform/actionWidget/browser/actionWidget.js';
 import { ITelemetryService } from '../../../../../../platform/telemetry/common/telemetry.js';
 import { IChatPhoneInputPresenter } from '../../../../../../workbench/contrib/chat/browser/widget/input/chatPhoneInputPresenter.js';
 import { ISessionsProvidersService } from '../../../../../services/sessions/browser/sessionsProvidersService.js';
 import { ISessionsManagementService } from '../../../../../services/sessions/common/sessionsManagement.js';
 import { AgentHostModePicker } from '../agentHostModePicker.js';
+=======
+import { IActionWidgetService } from '../../../../../platform/actionWidget/browser/actionWidget.js';
+import { ITelemetryService } from '../../../../../platform/telemetry/common/telemetry.js';
+import { IChatPhoneInputPresenter } from '../../../../../workbench/contrib/chat/browser/widget/input/chatPhoneInputPresenter.js';
+import { ISessionsProvidersService } from '../../../../services/sessions/browser/sessionsProvidersService.js';
+import { ISessionsManagementService } from '../../../../services/sessions/common/sessionsManagement.js';
+import { AgentHostModePicker } from '../agentHost/agentHostModePicker.js';
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f:src/vs/sessions/contrib/chat/browser/mobile/mobileAgentHostModePicker.ts
 
 /**
  * Phone-aware variant of {@link AgentHostModePicker}. On phone-layout

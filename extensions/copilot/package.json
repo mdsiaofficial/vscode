@@ -3289,6 +3289,17 @@
 						],
 						"markdownDescription": "%github.copilot.config.codesearch.enabled%"
 					},
+<<<<<<< HEAD
+=======
+					"github.copilot.chat.tools.memory.enabled": {
+						"type": "boolean",
+						"default": true,
+						"markdownDescription": "%github.copilot.config.tools.memory.enabled%",
+						"tags": [
+							"preview"
+						]
+					},
+>>>>>>> 0958016b2af9f09bb4257e0df4a95e2f90590f9f
 					"github.copilot.chat.tools.viewImage.enabled": {
 						"type": "boolean",
 						"default": true,
@@ -4785,7 +4796,7 @@
 					},
 					"github.copilot.chat.cli.forkSessions.enabled": {
 						"type": "boolean",
-						"default": true,
+						"default": false,
 						"markdownDescription": "%github.copilot.config.cli.forkSessions.enabled%",
 						"tags": [
 							"advanced"
